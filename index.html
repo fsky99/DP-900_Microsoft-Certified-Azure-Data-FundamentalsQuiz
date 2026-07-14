@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DP-900 Azure Data Fundamentals Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <div class="utility-bar">
+      <button id="restartBtn" class="btn ghost restart-top" type="button" title="Restart and reshuffle the current section">↻ Restart Randomly</button>
+      <button id="changeSectionBtn" class="btn ghost hidden" type="button">Sections</button>
+    </div>
+
+    <section class="hero card">
+      <div>
+        <p class="eyebrow">DP-900 Practice</p>
+        <h1>Azure Data Fundamentals Quiz</h1>
+        <p class="subtitle">Practice by official exam domain or choose a mixed exam. Questions are randomized and use original Microsoft-style scenarios with detailed explanations.</p>
+      </div>
+      <div class="hero-stats" aria-label="quiz stats">
+        <div class="stat-total"><span id="totalQuestions">0</span><small>Total</small></div>
+        <div class="stat-correct"><span id="liveScore">0</span><small>Correct</small></div>
+        <div class="stat-wrong"><span id="wrongCount">0</span><small>Wrong</small></div>
+        <div><span id="answeredCount">0</span><small>Answered</small></div>
+      </div>
+    </section>
+
+    <section id="sectionCard" class="section-card card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Choose a section</p>
+          <h2>What would you like to practise?</h2>
+        </div>
+        <p>Each section keeps its own question list. The Mixed Exam combines every domain.</p>
+      </div>
+      <div id="sectionGrid" class="section-grid"></div>
+    </section>
+
+    <section id="quizCard" class="quiz-card card hidden">
+      <div class="quiz-layout">
+        <div class="question-panel">
+          <div class="top-row">
+            <div>
+              <p id="domain" class="domain">Domain</p>
+              <h2 id="questionText">Loading question...</h2>
+            </div>
+            <div class="progress-wrap" aria-label="question progress">
+              <span id="questionCounter">Question 1</span>
+              <div class="progress-bar"><div id="progressFill"></div></div>
+            </div>
+          </div>
+
+          <form id="answerForm" class="answers"></form>
+          <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+
+          <div class="actions nav-actions">
+            <button id="previousBtn" class="btn secondary" type="button">Previous</button>
+            <button id="submitBtn" class="btn primary" type="button" disabled>Submit Question</button>
+            <button id="nextBtn" class="btn secondary" type="button">Next</button>
+          </div>
+        </div>
+
+        <aside class="navigator" aria-label="Question navigator">
+          <div class="navigator-header">
+            <div>
+              <small>Current section</small>
+              <strong id="currentSectionName">Section</strong>
+            </div>
+            <span id="sectionProgressText">0 / 0</span>
+          </div>
+          <div class="legend">
+            <span><i class="legend-current"></i>Current</span>
+            <span><i class="legend-correct"></i>Correct</span>
+            <span><i class="legend-wrong"></i>Wrong</span>
+            <span><i class="legend-unanswered"></i>Unanswered</span>
+          </div>
+          <div id="questionNavigator" class="question-navigator"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="resultCard" class="result-card card hidden">
+      <p class="eyebrow">Section complete</p>
+      <h2>Your Score</h2>
+      <div class="score-circle">
+        <span id="finalPercent">0%</span>
+        <small id="finalScoreText">0 / 0</small>
+      </div>
+      <p id="scoreMessage" class="score-message"></p>
+      <div id="domainBreakdown" class="breakdown"></div>
+      <div class="actions centered">
+        <button id="restartBtnEnd" class="btn primary" type="button">Restart With Random Order</button>
+        <button id="sectionsBtnEnd" class="btn secondary" type="button">Choose Another Section</button>
+        <button id="toggleReviewBtn" class="btn secondary" type="button">Review Missed Questions</button>
+      </div>
+      <div id="reviewList" class="review-list hidden"></div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
